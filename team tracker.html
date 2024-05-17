@@ -4,73 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Selector</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            width: 400px;
-        }
-        select {
-            width: 120px;
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-            box-sizing: border-box;
-            margin-bottom: 10px;
-        }
-        input[type="number"] {
-            width: 100px;
-            padding: 8px;
-            font-size: 14px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            outline: none;
-            box-sizing: border-box;
-        }
-        .result {
-            padding: 10px;
-            text-align: center;
-            font-size: 18px;
-        }
-        .addFieldBtn {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container" id="container">
         <div id="fieldSet">
             <select class="colorSelector" onchange="changeColor(this)">
                 <option value="" disabled selected>Select a color</option>
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-                <option value="blue">Blue</option>
-                <option value="yellow">Yellow</option>
-                <option value="orange">Orange</option>
+                <option value="#ff0000">Red</option>
+                <option value="#00ff00">Green</option>
+                <option value="#0000ff">Blue</option>
+                <option value="#ffff00">Yellow</option>
+                <option value="#ffa500">Orange</option>
             </select>
             <input type="number" class="teamNumber" placeholder="Enter team number">
             <select class="penaltySelector">
@@ -90,43 +35,6 @@
         <button class="addFieldBtn" onclick="addNewField()">Add New Line</button>
     </div>
 
-    <script>
-        function changeColor(selectElement) {
-            var color = selectElement.value;
-            var result = selectElement.nextElementSibling.nextElementSibling.nextElementSibling;
-            result.style.color = color;
-            result.textContent = "You selected " + color;
-        }
-
-        function addNewField() {
-            var container = document.getElementById("container");
-            var fieldSet = document.createElement("div");
-            fieldSet.innerHTML = `
-                <select class="colorSelector" onchange="changeColor(this)">
-                    <option value="" disabled selected>Select a color</option>
-                    <option value="red">Red</option>
-                    <option value="green">Green</option>
-                    <option value="blue">Blue</option>
-                    <option value="yellow">Yellow</option>
-                    <option value="orange">Orange</option>
-                </select>
-                <input type="number" class="teamNumber" placeholder="Enter team number">
-                <select class="penaltySelector">
-                    <option value="" disabled selected>Select a penalty</option>
-                    <option value="cutting the track">Cutting the track</option>
-                    <option value="back block">Back block</option>
-                    <option value="forearm">Forearm</option>
-                    <option value="high block">High block</option>
-                    <option value="low block">Low block</option>
-                    <option value="multiplayer block">Multiplayer block</option>
-                    <option value="direction of gameplay">Direction of gameplay</option>
-                    <option value="out of play">Out of play</option>
-                    <option value="failure to reform">Failure to reform</option>
-                </select>
-                <div class="result"></div>
-            `;
-            container.insertBefore(fieldSet, container.lastChild);
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
