@@ -4,35 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Color Selector</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <div class="container" id="container">
-        <div id="fieldSet">
-            <select class="colorSelector" onchange="changeColor(this)">
-                <option value="" disabled selected>Select team Color</option>
-                <option value="#ff0000">Red</option>
-                <option value="#00ff00">Green</option>
-                <option value="#0000ff">Blue</option>
-                <option value="#ffff00">Yellow</option>
-                <option value="#ffa500">Orange</option>
-            </select>
-            <input type="number" class="teamNumber" placeholder="Enter team number">
-            <select class="penaltySelector">
-                <option value="" disabled selected>Select a penalty</option>
-                <option value="cutting the track">Cutting the track</option>
-                <option value="back block">Back block</option>
-                <option value="forearm">Forearm</option>
-                <option value="high block">High block</option>
-                <option value="low block">Low block</option>
-                <option value="multiplayer block">Multiplayer block</option>
-                <option value="direction of gameplay">Direction of gameplay</option>
-                <option value="out of play">Out of play</option>
-                <option value="failure to reform">Failure to reform</option>
-            </select>
-            <div class="result"></div>
-        </div>
-        <button class="addFieldBtn" onclick="addNewField()">Add New Line</button>
+        <form id="colorForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="colorSelector">Select Team Color</label>
+                    <select id="colorSelector" class="color-selector" onchange="changeColor(this)">
+                        <option value="" disabled selected>Select team Color</option>
+                        <option value="#ff0000" data-color="#ff0000">Red</option>
+                        <option value="#00ff00" data-color="#00ff00">Green</option>
+                        <option value="#0000ff" data-color="#0000ff">Blue</option>
+                        <option value="#ffff00" data-color="#ffff00">Yellow</option>
+                        <option value="#ffa500" data-color="#ffa500">Orange</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="teamNumber">Enter Team Number</label>
+                    <input type="number" class="team-number" placeholder="Enter team number">
+                </div>
+                <div class="form-group">
+                    <label for="penaltySelector">Select a Penalty</label>
+                    <select id="penaltySelector" class="penalty-selector">
+                        <option value="" disabled selected>Select a penalty</option>
+                        <option value="cutting the track">Cutting the track</option>
+                        <option value="back block">Back block</option>
+                        <option value="forearm">Forearm</option>
+                        <option value="high block">High block</option>
+                        <option value="low block">Low block</option>
+                        <option value="multiplayer block">Multiplayer block</option>
+                        <option value="direction of gameplay">Direction of gameplay</option>
+                        <option value="out of play">Out of play</option>
+                        <option value="failure to reform">Failure to reform</option>
+                    </select>
+                </div>
+                <div class="result"></div>
+            </div>
+        </form>
+        <button class="add-field-btn" onclick="addNewField()">Add New Line</button>
     </div>
 
     <script src="script.js"></script>

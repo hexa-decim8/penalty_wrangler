@@ -17,10 +17,6 @@ body {
 
 /* Container styles */
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -28,7 +24,29 @@ body {
     width: 400px;
 }
 
-/* Select styles */
+/* Form Row styles */
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px; /* Separate each line */
+}
+
+/* Form Group styles */
+.form-group {
+    width: calc(33.33% - 10px); /* Adjust the width as needed */
+    margin-bottom: 10px;
+}
+
+/* Label styles */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input and Select styles */
 select,
 input[type="number"] {
     width: 100%;
@@ -38,7 +56,6 @@ input[type="number"] {
     border-radius: 5px;
     outline: none;
     box-sizing: border-box;
-    margin-bottom: 10px;
 }
 
 /* Result styles */
@@ -49,7 +66,7 @@ input[type="number"] {
 }
 
 /* Add Field Button styles */
-.addFieldBtn {
+.add-field-btn {
     margin-top: 10px;
     padding: 8px 16px;
     background-color: #4CAF50;
@@ -57,16 +74,24 @@ input[type="number"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Color change result styles */
-.colorSelector + input[type="number"] + select + .result {
-    color: inherit;
+.add-field-btn:hover {
+    background-color: #45a049;
+}
+
+.add-field-btn:focus {
+    outline: 2px solid #45a049;
 }
 
 /* Media query for smaller screens */
 @media (max-width: 480px) {
     .container {
         width: 90%;
+    }
+    .form-group {
+        width: 100%;
+        margin-right: 0;
     }
 }
